@@ -6,7 +6,7 @@ buildscript {
     }
 
     dependencies {
-      classpath 'com.android.tools.build:gradle:3.5.4'
+      classpath('com.android.tools.build:gradle:7.2.1')
     }
   }
 }
@@ -18,11 +18,11 @@ def safeExtGet(prop, fallback) {
 }
 
 android {
-  compileSdkVersion safeExtGet('Deepar_compileSdkVersion', 29)
-  buildToolsVersion safeExtGet('Deepar_buildToolsVersion', '29.0.2')
+  compileSdkVersion safeExtGet('Deepar_compileSdkVersion', 32)
+  buildToolsVersion safeExtGet('Deepar_buildToolsVersion', '34.0.0-rc1')
   defaultConfig {
-    minSdkVersion safeExtGet('Deepar_minSdkVersion', 21)
-    targetSdkVersion safeExtGet('Deepar_targetSdkVersion', 29)
+    minSdkVersion safeExtGet('Deepar_minSdkVersion', 23)
+    targetSdkVersion safeExtGet('Deepar_targetSdkVersion', 32)
     versionCode 1
     versionName "1.0"
   }
@@ -49,12 +49,15 @@ repositories {
   }
   google()
   mavenCentral()
+  flatDir {
+    dirs "src/main/libs"
+  }
 }
 
 dependencies {
   //noinspection GradleDynamicVersion
   implementation "com.facebook.react:react-native:+"  // From node_modules
-  implementation fileTree(dir: "libs", include: ["*.aar"])
+  
 
   // CameraX core library using the camera2 implementation
   def camerax_version = "1.1.0"
@@ -65,4 +68,7 @@ dependencies {
 
   // The following line is optional, as the core library is included indirectly by camera-camera2
   implementation "androidx.camera:camera-core:${camerax_version}"
+
+  implementation(name: "deepar-3.4.4", ext:"aar")
+  
 }
