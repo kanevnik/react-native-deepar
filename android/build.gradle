@@ -18,11 +18,11 @@ def safeExtGet(prop, fallback) {
 }
 
 android {
-  compileSdkVersion safeExtGet('Deepar_compileSdkVersion', 32)
-  buildToolsVersion safeExtGet('Deepar_buildToolsVersion', '34.0.0-rc1')
+  compileSdkVersion safeExtGet('Deepar_compileSdkVersion', 31)
+  buildToolsVersion safeExtGet('Deepar_buildToolsVersion', '31.0.0')
   defaultConfig {
     minSdkVersion safeExtGet('Deepar_minSdkVersion', 23)
-    targetSdkVersion safeExtGet('Deepar_targetSdkVersion', 32)
+    targetSdkVersion safeExtGet('Deepar_targetSdkVersion', 31)
     versionCode 1
     versionName "1.0"
   }
